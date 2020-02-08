@@ -1,8 +1,10 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { Navbar } from "./Navbar/Navbar";
 
 const GlobalStyle = createGlobalStyle`
   body {
+    margin: 0;
     font-family: 'Righteous', cursive;
 font-family: 'Open Sans', sans-serif;
   }
@@ -15,8 +17,8 @@ font-family: 'Open Sans', sans-serif;
 function App() {
   return (
     <>
-    <h1>Hello Pizza</h1>
     <GlobalStyle/>
+    <Navbar/>
     <div> sliceline </div>
     </>
   );
