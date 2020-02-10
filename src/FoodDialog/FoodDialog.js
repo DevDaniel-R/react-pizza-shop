@@ -64,11 +64,21 @@ padding: 5px;
 `;
 
 
-export function FoodDialog({openFood, setOpenFood}) {
+export function FoodDialog({openFood, setOpenFood, setOrders, orders }) {
   function close(){
     setOpenFood();
   }
-  if (!openFood) return null ;
+  if (!openFood) return null;
+
+  const order = {
+    name: openFood.name
+  }
+
+function addToOrder(){
+  setOrders([...orders, order]);
+  close();
+}
+
   return (
     <>
     <DialogShadow  onClick={close} />
@@ -80,7 +90,7 @@ export function FoodDialog({openFood, setOpenFood}) {
       
       </DialogContent>
       <DialogFooter>
-      <ConfirmButton>
+      <ConfirmButton onClick={addToOrder}>
         Confirm
       </ConfirmButton>
       </DialogFooter>
