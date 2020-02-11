@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {DialogContent, DialogFooter, ConfirmButton} from "../FoodDialog/FoodDialog";
 import {formatPrice} from '../Data/FoodData';
+import {getPrice} from '../FoodDialog/FoodDialog';
 
 const OrderStyled = styled.div` 
 position: fixed;
@@ -46,9 +47,9 @@ export function Order({orders}) {
     {orders.map(Order => (
       <OrderContainer>
         <OrderItem>
-         <div>1</div>
+         <div>{order.quantity}</div>
          <div>{Order.name}</div>
-         <div>{formatPrice(Order.price)}</div>
+         <div>{formatPrice(getPrice(order))}</div>
         </OrderItem>
       </OrderContainer>
     ))}
