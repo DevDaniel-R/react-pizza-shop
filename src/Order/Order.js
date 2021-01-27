@@ -11,11 +11,15 @@ top: 48px;
 width: 340px;
 background-color: white;
 height: calc(100% - 50px);
-/*border: 1px solid blue; */ 
+border: 1px solid blue;
 z-index: 10;
 box-shadow: 4px 0px 5px 4px grey;
 display: flex;
 flex-direction: column;
+@media(max-width: 400px){ 
+    position: relative; 
+    width: 100%; 
+  }
 `;
 
 const OrderContent = styled(DialogContent)` 
@@ -35,6 +39,11 @@ grid-template-columns: 20px 150px 20px 60px;
 justify-content: space-between;
 `;
 
+const DetailItem = styled.div`
+color: gray;
+font-size: 10px;
+`;
+
 export function Order({ orders }) {
   const subtotal = orders.reduce((total,order) => {
     return total + getPrice(order);
@@ -49,14 +58,21 @@ export function Order({ orders }) {
        <OrderContent>
        {" "}
     <OrderContainer> Your Order: </OrderContainer>{" "}
-    {orders.map(Order => (
+    {orders.map(order => (
       <OrderContainer>
         <OrderItem>
-         <div>{Order.quantity}</div>
-         <div>{Order.name}</div>
+         <div>{order.quantity}</div>
+         <div>{order.name}</div>
          <div />
-         <div>{formatPrice(getPrice(Order))}</div>
+         <div>{formatPrice(getPrice(order))}</div>
         </OrderItem>
+        <DetailItem>
+        {order.toppings
+          .filter(t => t.checked)
+          .map(topping => topping.name)
+          .join(", ")
+        }
+        </DetailItem>
       </OrderContainer>
     ))}
     <OrderContainer>
