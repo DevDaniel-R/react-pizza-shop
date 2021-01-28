@@ -2,7 +2,7 @@ export function formatPrice(price) {
   return price.toLocaleString('en-US', {
     style: 'currency',
     currency: 'USD'
-  })
+  });
 }
 
 export const foodItems = [
@@ -47,8 +47,19 @@ export const foodItems = [
     img: '/img/cheesesticks.jpeg',
     section: 'Sides',
     price: 2
+  },
+  {
+  name: 'Fries',
+  img: '/img/fries.jpeg',
+  section: 'Sides',
+  price: 1
+  },
+  {
+  price: 1,
+  name: "Soda",
+  section: "Drinks",
+  choices: ["Coke", "Sprite", "Root Beer"]
   }
-
 ];
 
 export const foods = foodItems.reduce((res,food) => {
