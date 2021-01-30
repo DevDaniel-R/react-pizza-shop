@@ -4,6 +4,9 @@ import React from 'react';
 const ToppingGrid = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 1fr);
+@media(max-width: 400px){ 
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 const ToppingCheckbox = styled.input `
