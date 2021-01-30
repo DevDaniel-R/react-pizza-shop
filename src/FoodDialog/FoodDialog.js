@@ -81,11 +81,11 @@ top: ${({ img }) => (img ? `100px` : `20px`)};
 const pricePerTopping = 0.5;
 
 export function getPrice(order){
-  return ( order.quantity * order.price + order.toppings.filter(t => t.checked).length * pricePerTopping);
+  return order.quantity * (order.price + order.toppings.filter(t => t.checked).length * pricePerTopping);
 }
 
 function hasToppings(food) {
-return food.section === 'pizza';
+return food.section === 'Pizza';
 }
 
 function FoodDialogContainer({ openFood, setOpenFood, setOrders, orders }) {
@@ -101,7 +101,8 @@ function FoodDialogContainer({ openFood, setOpenFood, setOrders, orders }) {
   const order = {
     ...openFood,
     quantity: quantity.value,
-    toppings: toppings.toppings
+    toppings: toppings.toppings,
+    choice: choiceRadio.value
   };
 
   function editOrder() {

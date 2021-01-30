@@ -5,5 +5,5 @@ export function useOpenFood(){
   return {
     openFood,
     setOpenFood
-  }
+  };
 }
