@@ -31,7 +31,7 @@ export const foodItems = [
     price: 11.5
     },
   {
-    name: 'Wings',
+    name: 'Hot Wings',
     img: '/img/wings.jpeg',
     section: 'Wings',
     price: 6
